@@ -1,6 +1,7 @@
-import { initializeApp } from "firebase/app";
+// import { initializeApp } from "firebase/app";
 
 const express = require("express");
+const firebase = require("firebase/app")
 const app = express();
 const port = 3000;
 
@@ -10,7 +11,7 @@ const port = 3000;
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyA4oyX69Y2PONg0DzDOX4He9nQFP5QPr5U",
+  apiKey: process.env.FIREBASE_KEY,
   authDomain: "exercise-five-f6c2f.firebaseapp.com",
   projectId: "exercise-five-f6c2f",
   storageBucket: "exercise-five-f6c2f.firebasestorage.app",
@@ -19,17 +20,19 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const firebaseApp = initializeApp(firebaseConfig);
+firebase.initializeApp(firebaseConfig);
 
-
-const indexRoute = require("./route/index.js");
-const createPostRoute = require("./route/createPostRoute.js");
-const singlePostRoute = require("./route/singlePostRoute.js");
+const indexRoute = require("./routes/index.js");
+const createPostRoute = require("./routes/createPost.js");
+const singlePostRoute = require("./routes/singlePost.js");
 
 app.use('/', indexRoute);
-app.use('/create',createPostRoute());
-app.use('/post',singlePostRoute());
+app.use('/create',createPostRoute);
+app.use('/post',singlePostRoute);
+app.use(express.static("public"));
 
 app.listen(port, () =>{
     console.log(`Exercise Five app listening on port ${port}`);
 });
+
+module.exports = app

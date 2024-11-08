@@ -4,17 +4,13 @@ const firestore = require("firebase/firestore"); //init firestore
 const db = firestore.getFirestore(); //create a ref to the db
 
 
-router.get("/", (request, response) => {
-    response.send("Single post");
-});
-
-router.get("/:postID", (requeset,response)=> {
+router.get("/", (requeset,response)=> {
     response.send("please include a Post ID");
 })
 
 router.get("/:postId", (request, response) => {
-    const postID = request.params.postId;
-    const postQuery = firestore.getDoc(Firestore.doc(db, "posts", postId));
+    const postId = request.params.postId;
+    const postQuery = firestore.getDoc(firestore.doc(db, "posts", postId));
     
     postQuery
     .then((res)=>{
