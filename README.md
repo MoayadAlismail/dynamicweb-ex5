@@ -8,14 +8,14 @@ Clone the repo + ADD YOUR OWN API!!!
 
 ## Screenshots
 
-### Homepage (BEFORE adding a blog)
-(./screenshots/home1.png)
+### Homepage (BEFORE posting)
+![Homepage before post](./screenshots/home1.png)
 
 ### Create Post Form
-(./screenshots/form.png)
+![Create post form](./screenshots/form.png)
 
 ### Success Page
-(./screenshots/success.png)
+![Success page](./screenshots/success.png)
 
-### Homepage (AFTER adding a blog)
-(./screenshots/home2.png)
+### Homepage (AFTER posting)
+![Homepage after post](./screenshots/home2.png)
